@@ -1,0 +1,3 @@
+accessible to commit -> git add .
+commit -> git commit -m "message"
+push changes to remote repo->git push -u origin main
