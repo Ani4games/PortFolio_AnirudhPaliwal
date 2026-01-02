@@ -114,7 +114,7 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(circle at 30% 70%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(255, 0, 150, 0.1) 0%, transparent 50%);
+                        radial-gradient(circle at 70% 30%, rgba(0, 26, 255, 0.459) 0%, transparent 50%);
             animation: float 6s ease-in-out infinite;
         }
 
