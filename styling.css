@@ -139,7 +139,8 @@ button { font-family: inherit; cursor: pointer; }
 /* Desktop icons */
 .desktop-icons {
     position: absolute; top: 1.2rem; left: 1.2rem;
-    display: flex; flex-direction: column; gap: 1.6rem;
+    display: grid; grid-template-columns: repeat(2, 88px);
+    gap: 1.1rem 0.6rem;
     z-index: 1;
 }
 
@@ -163,6 +164,12 @@ button { font-family: inherit; cursor: pointer; }
 .projects-glyph { background: linear-gradient(160deg, #f4c452, #c98a1f); }
 .contact-glyph { background: linear-gradient(160deg, #6fd08a, #2a9150); }
 .bin-glyph { background: linear-gradient(160deg, #b7c0c9, #6f7b87); }
+.skills-glyph { background: linear-gradient(160deg, #5fe0e0, #1b8a8a); }
+.experience-glyph { background: linear-gradient(160deg, #f06fb0, #b02a72); }
+.education-glyph { background: linear-gradient(160deg, #f7ce6a, #c98a1f); }
+.resume-glyph { background: linear-gradient(160deg, #6fd08a, #1f8a4c); }
+.terminal-glyph { background: linear-gradient(160deg, #3a4550, #101418); }
+.terminal-glyph i { color: #3ff08a; }
 
 .icon-label {
     font-size: 0.72rem;
@@ -173,7 +180,8 @@ button { font-family: inherit; cursor: pointer; }
 /* ==========================================================================
    WINDOWS
    ========================================================================== */
-#windows-container { position: absolute; inset: 0; z-index: 2; }
+#windows-container { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+#windows-container .os-window { pointer-events: auto; }
 
 .os-window {
     position: absolute;
@@ -315,6 +323,69 @@ button { font-family: inherit; cursor: pointer; }
     transition: transform 0.15s ease;
 }
 .contact-form button:hover { transform: translateY(-1px); }
+
+/* ---- Skills window ---- */
+.skills-body { padding: 1.8rem; overflow-y: auto; }
+.skill-group { margin-bottom: 1.4rem; }
+.skill-group h4 {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: var(--accent-blue-deep); font-size: 0.95rem; margin-bottom: 0.6rem;
+}
+.skill-group h4 i { font-size: 1.1rem; color: var(--accent-blue); }
+.skills-note { font-size: 0.78rem; color: var(--text-mute); margin-top: 0.4rem; font-style: italic; }
+
+/* ---- Experience / Education (timeline) windows ---- */
+.timeline-body { padding: 1.6rem 1.8rem; overflow-y: auto; }
+.placeholder-notice {
+    display: flex; align-items: center; gap: 0.5rem;
+    background: #fff6e0; border: 1px solid #f0d998; color: #8a6a10;
+    font-size: 0.76rem; padding: 0.55rem 0.8rem; border-radius: 6px;
+    margin-bottom: 1.2rem;
+}
+.placeholder-notice i { font-size: 0.9rem; flex-shrink: 0; }
+.timeline-item { display: flex; gap: 1rem; padding-bottom: 1.2rem; position: relative; }
+.timeline-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent-blue); margin-top: 0.3rem; flex-shrink: 0;
+    box-shadow: 0 0 0 4px rgba(79,161,232,0.18);
+}
+.timeline-content h4 { color: var(--accent-blue-deep); font-size: 0.95rem; margin-bottom: 0.2rem; }
+.timeline-meta { font-size: 0.78rem; color: #b3792f; margin-bottom: 0.4rem; }
+.timeline-content p { font-size: 0.84rem; color: var(--text-mute); line-height: 1.5; }
+
+/* ---- Resume window ---- */
+.resume-body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.6rem; padding: 2.4rem; text-align: center;
+}
+.resume-icon { font-size: 3.2rem; color: #d64545; }
+.resume-body h3 { color: var(--accent-blue-deep); font-size: 1.05rem; }
+.resume-body p { color: var(--text-mute); font-size: 0.82rem; max-width: 340px; line-height: 1.5; }
+.resume-body code { background: #eef2f6; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.78rem; }
+.resume-download-btn {
+    margin-top: 0.6rem; display: inline-flex; align-items: center; gap: 0.5rem;
+    background: linear-gradient(160deg, #4fa1e8, #1c5fa0); color: #fff; text-decoration: none;
+    padding: 0.6rem 1.2rem; border-radius: 5px; font-size: 0.85rem; font-weight: 600;
+    transition: transform 0.15s ease;
+}
+.resume-download-btn:hover { transform: translateY(-1px); }
+
+/* ---- Terminal window ---- */
+.terminal-body {
+    background: #0c1117; color: #3ff08a; font-family: 'Consolas', 'Courier New', monospace;
+    padding: 0.9rem 1rem; display: flex; flex-direction: column; height: 100%; overflow: hidden;
+}
+.terminal-output { flex: 1; overflow-y: auto; font-size: 0.82rem; line-height: 1.6; margin-bottom: 0.5rem; }
+.terminal-output p { margin-bottom: 0.35rem; white-space: pre-wrap; word-break: break-word; }
+.term-hl { color: #6fd0f0; }
+.term-cmd-echo { color: #eef3f9; }
+.term-error { color: #f0806f; }
+.terminal-input-line { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.term-prompt { font-size: 0.82rem; color: #6fd0f0; white-space: nowrap; }
+.terminal-input {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: #3ff08a; font-family: inherit; font-size: 0.82rem;
+}
 
 /* ---- Recycle bin window ---- */
 .bin-body { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 2.5rem; text-align: center; }

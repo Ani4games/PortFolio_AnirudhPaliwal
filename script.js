@@ -58,6 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         projects:   { title: 'Projects', icon: 'bx-folder',  template: 'tpl-projects', w: 700, h: 460 },
         contact:    { title: 'Contact',  icon: 'bx-envelope', template: 'tpl-contact',  w: 640, h: 420 },
         recyclebin: { title: 'Recycle Bin', icon: 'bx-trash', template: 'tpl-recyclebin', w: 380, h: 260 },
+        skills:     { title: 'Skills', icon: 'bx-wrench', template: 'tpl-skills', w: 480, h: 420 },
+        experience: { title: 'Experience', icon: 'bx-briefcase', template: 'tpl-experience', w: 540, h: 380 },
+        education:  { title: 'Education', icon: 'bx-book-open', template: 'tpl-education', w: 540, h: 380 },
+        resume:     { title: 'Resume', icon: 'bx-file', template: 'tpl-resume', w: 440, h: 340 },
+        terminal:   { title: 'Terminal', icon: 'bx-terminal', template: 'tpl-terminal', w: 560, h: 380 },
     };
 
     const openWindows = {}; // id -> { el, taskbarBtn, minimized, maximized }
@@ -138,6 +143,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 form.reset();
             });
         }
+
+        if (id === 'terminal') wireTerminal(winEl);
+    }
+
+    // ---------------- Terminal ----------------
+    function wireTerminal(winEl) {
+        const output = winEl.querySelector('.terminal-output');
+        const input = winEl.querySelector('.terminal-input');
+
+        const TERM_COMMANDS = {
+            help: () => `Available commands: help, about, skills, projects, contact, whoami, date, clear`,
+            about: () => `Anirudh Paliwal — Game Developer & Frontend Web Developer. Passionate about building immersive digital experiences.`,
+            skills: () => `Unity, C#, Game Design, JavaScript, HTML/CSS, React, UI/UX`,
+            projects: () => `Space Dodger Game, Portfolio Dashboard, Memory Master — open the Projects window for details.`,
+            contact: () => `Email: anibro16@gmail.com | anipalgames016@gmail.com`,
+            whoami: () => `guest@anirudh-os`,
+            date: () => new Date().toString(),
+            sudo: () => `Nice try. This terminal doesn't need root — everything here is already open.`,
+        };
+
+        function printLine(text, cls) {
+            const p = document.createElement('p');
+            if (cls) p.className = cls;
+            p.textContent = text;
+            output.appendChild(p);
+            output.scrollTop = output.scrollHeight;
+        }
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key !== 'Enter') return;
+            const raw = input.value.trim();
+            input.value = '';
+            if (!raw) return;
+            printLine(`anirudh@portfolio:~$ ${raw}`, 'term-cmd-echo');
+
+            if (raw === 'clear') {
+                output.innerHTML = '';
+                return;
+            }
+            const cmd = raw.toLowerCase();
+            if (TERM_COMMANDS[cmd]) {
+                printLine(TERM_COMMANDS[cmd]());
+            } else {
+                printLine(`Command not found: ${raw}. Type "help" for a list of commands.`, 'term-error');
+            }
+        });
+
+        winEl.addEventListener('mousedown', () => setTimeout(() => input.focus(), 0));
+        setTimeout(() => input.focus(), 50);
     }
 
     function closeWindow(id) {

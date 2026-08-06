@@ -64,9 +64,29 @@
                 <span class="icon-glyph projects-glyph"><i class='bx bx-folder'></i></span>
                 <span class="icon-label">Projects</span>
             </button>
+            <button class="desktop-icon" data-window="skills">
+                <span class="icon-glyph skills-glyph"><i class='bx bx-wrench'></i></span>
+                <span class="icon-label">Skills</span>
+            </button>
+            <button class="desktop-icon" data-window="experience">
+                <span class="icon-glyph experience-glyph"><i class='bx bx-briefcase'></i></span>
+                <span class="icon-label">Experience</span>
+            </button>
+            <button class="desktop-icon" data-window="education">
+                <span class="icon-glyph education-glyph"><i class='bx bx-book-open'></i></span>
+                <span class="icon-label">Education</span>
+            </button>
+            <button class="desktop-icon" data-window="resume">
+                <span class="icon-glyph resume-glyph"><i class='bx bx-file'></i></span>
+                <span class="icon-label">Resume</span>
+            </button>
             <button class="desktop-icon" data-window="contact">
                 <span class="icon-glyph contact-glyph"><i class='bx bx-envelope'></i></span>
                 <span class="icon-label">Contact</span>
+            </button>
+            <button class="desktop-icon" data-window="terminal">
+                <span class="icon-glyph terminal-glyph"><i class='bx bx-terminal'></i></span>
+                <span class="icon-label">Terminal</span>
             </button>
             <button class="desktop-icon" data-window="recyclebin">
                 <span class="icon-glyph bin-glyph"><i class='bx bx-trash'></i></span>
@@ -87,8 +107,23 @@
                 <button class="start-item" data-window="projects">
                     <i class='bx bx-folder'></i><span>Projects</span>
                 </button>
+                <button class="start-item" data-window="skills">
+                    <i class='bx bx-wrench'></i><span>Skills</span>
+                </button>
+                <button class="start-item" data-window="experience">
+                    <i class='bx bx-briefcase'></i><span>Experience</span>
+                </button>
+                <button class="start-item" data-window="education">
+                    <i class='bx bx-book-open'></i><span>Education</span>
+                </button>
+                <button class="start-item" data-window="resume">
+                    <i class='bx bx-file'></i><span>Resume</span>
+                </button>
                 <button class="start-item" data-window="contact">
                     <i class='bx bx-envelope'></i><span>Contact</span>
+                </button>
+                <button class="start-item" data-window="terminal">
+                    <i class='bx bx-terminal'></i><span>Terminal</span>
                 </button>
                 <button class="start-item" data-window="recyclebin">
                     <i class='bx bx-trash'></i><span>Recycle Bin</span>
@@ -261,6 +296,113 @@
             <i class='bx bx-trash bin-empty-icon'></i>
             <p>Recycle Bin is empty.</p>
             <p class="bin-sub">No old ideas thrown away here — only shipped ones.</p>
+        </div>
+    </template>
+
+    <template id="tpl-skills">
+        <div class="win-titlebar">
+            <div class="win-title"><i class='bx bx-wrench'></i><span>Skills</span></div>
+            <div class="win-controls">
+                <button class="win-min" aria-label="Minimize"><i class='bx bx-minus'></i></button>
+                <button class="win-max" aria-label="Maximize"><i class='bx bx-square'></i></button>
+                <button class="win-close" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+        <div class="win-body skills-body">
+            <div class="skill-group">
+                <h4><i class='bx bxs-joystick'></i> Game Development</h4>
+                <div class="skills"><span class="skill-tag">Unity</span><span class="skill-tag">C#</span><span class="skill-tag">Game Design</span></div>
+            </div>
+            <div class="skill-group">
+                <h4><i class='bx bx-code-alt'></i> Web Development</h4>
+                <div class="skills"><span class="skill-tag">JavaScript</span><span class="skill-tag">HTML/CSS</span><span class="skill-tag">React</span></div>
+            </div>
+            <div class="skill-group">
+                <h4><i class='bx bx-palette'></i> Design</h4>
+                <div class="skills"><span class="skill-tag">UI/UX</span></div>
+            </div>
+            <p class="skills-note">More tools and technologies coming as I keep building.</p>
+        </div>
+    </template>
+
+    <template id="tpl-experience">
+        <div class="win-titlebar">
+            <div class="win-title"><i class='bx bx-briefcase'></i><span>Experience</span></div>
+            <div class="win-controls">
+                <button class="win-min" aria-label="Minimize"><i class='bx bx-minus'></i></button>
+                <button class="win-max" aria-label="Maximize"><i class='bx bx-square'></i></button>
+                <button class="win-close" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+        <div class="win-body timeline-body">
+            <div class="placeholder-notice"><i class='bx bx-info-circle'></i> Sample entry — replace with your real work history in index.html.</div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Role Title</h4>
+                    <p class="timeline-meta">Company / Studio Name &middot; Year – Year</p>
+                    <p>Short description of what you did and what you shipped.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-education">
+        <div class="win-titlebar">
+            <div class="win-title"><i class='bx bx-book-open'></i><span>Education</span></div>
+            <div class="win-controls">
+                <button class="win-min" aria-label="Minimize"><i class='bx bx-minus'></i></button>
+                <button class="win-max" aria-label="Maximize"><i class='bx bx-square'></i></button>
+                <button class="win-close" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+        <div class="win-body timeline-body">
+            <div class="placeholder-notice"><i class='bx bx-info-circle'></i> Sample entry — replace with your real education details in index.html.</div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h4>Degree / Course Name</h4>
+                    <p class="timeline-meta">Institution Name &middot; Year – Year</p>
+                    <p>Relevant coursework, focus area, or achievements.</p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="tpl-resume">
+        <div class="win-titlebar">
+            <div class="win-title"><i class='bx bx-file'></i><span>Resume</span></div>
+            <div class="win-controls">
+                <button class="win-min" aria-label="Minimize"><i class='bx bx-minus'></i></button>
+                <button class="win-max" aria-label="Maximize"><i class='bx bx-square'></i></button>
+                <button class="win-close" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+        <div class="win-body resume-body">
+            <i class='bx bxs-file-pdf resume-icon'></i>
+            <h3>Anirudh Paliwal — Resume</h3>
+            <p>Add your resume PDF to the project folder as <code>resume.pdf</code> and this button will download it.</p>
+            <a href="resume.pdf" download class="resume-download-btn"><i class='bx bx-download'></i> Download Resume</a>
+        </div>
+    </template>
+
+    <template id="tpl-terminal">
+        <div class="win-titlebar">
+            <div class="win-title"><i class='bx bx-terminal'></i><span>Terminal</span></div>
+            <div class="win-controls">
+                <button class="win-min" aria-label="Minimize"><i class='bx bx-minus'></i></button>
+                <button class="win-max" aria-label="Maximize"><i class='bx bx-square'></i></button>
+                <button class="win-close" aria-label="Close"><i class='bx bx-x'></i></button>
+            </div>
+        </div>
+        <div class="win-body terminal-body">
+            <div class="terminal-output">
+                <p>AnirudhOS Terminal — type <span class="term-hl">help</span> to see available commands.</p>
+            </div>
+            <div class="terminal-input-line">
+                <span class="term-prompt">anirudh@portfolio:~$</span>
+                <input type="text" class="terminal-input" autocomplete="off" spellcheck="false">
+            </div>
         </div>
     </template>
 
