@@ -255,6 +255,9 @@ button { font-family: inherit; cursor: pointer; }
 .about-text h3 { color: var(--accent-blue-deep); margin-bottom: 0.8rem; font-size: 1.25rem; }
 .about-text p { margin-bottom: 1rem; color: var(--text-mute); line-height: 1.55; }
 .skills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.6rem; }
+.achievements-list { list-style: none; margin-top: 1rem; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.achievements-list li { display: flex; align-items: flex-start; gap: 0.5rem; font-size: 0.8rem; color: var(--text-mute); line-height: 1.45; }
+.achievements-list li i { color: #c98a1f; font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
 .skill-tag {
     background: rgba(79,161,232,0.14); color: var(--accent-blue-deep);
     padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.78rem;
@@ -269,8 +272,17 @@ button { font-family: inherit; cursor: pointer; }
 }
 .projects-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1.1rem; padding: 1.3rem;
+    gap: 1.1rem; padding: 0 1.3rem;
 }
+.project-category { padding-top: 1.3rem; }
+.project-category:last-child { padding-bottom: 1.3rem; }
+.project-category-title {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0 1.3rem; margin-bottom: 0.8rem;
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--accent-blue-deep);
+}
+.project-category-title i { font-size: 0.95rem; color: var(--accent-blue); }
 .project-card {
     background: #fff; border: 1px solid #dfe4ea; border-radius: 8px;
     padding: 1rem; transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -352,6 +364,8 @@ button { font-family: inherit; cursor: pointer; }
 .timeline-content h4 { color: var(--accent-blue-deep); font-size: 0.95rem; margin-bottom: 0.2rem; }
 .timeline-meta { font-size: 0.78rem; color: #b3792f; margin-bottom: 0.4rem; }
 .timeline-content p { font-size: 0.84rem; color: var(--text-mute); line-height: 1.5; }
+.timeline-bullets { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+.timeline-bullets li { font-size: 0.84rem; color: var(--text-mute); line-height: 1.5; margin-bottom: 0.3rem; }
 
 /* ---- Resume window ---- */
 .resume-body {
@@ -540,3 +554,6 @@ button { font-family: inherit; cursor: pointer; }
     #start-menu { width: 100%; left: 0; right: 0; }
     .start-menu-right { display: none; }
 }
+
+/* React root sizing (harmless with the fixed-position full-screen layers above) */
+#root { height: 100%; }
